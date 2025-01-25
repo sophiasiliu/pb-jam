@@ -6,7 +6,7 @@ import plotly.express as px
 
 st.set_page_config(
     page_title="PB & Jam",
-    page_icon="🎵",
+    page_icon="🍞",
 )
 
 st.title("Find a Song With a Similar Vibe")
