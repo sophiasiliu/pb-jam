@@ -1,2 +1,2 @@
 # pb-jam
-our project for QHacks 2025
+Our project for QHacks 2025.
