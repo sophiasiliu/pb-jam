@@ -53,3 +53,19 @@ else:
             iframe_src = link
             components.iframe(iframe_src, height=175, scrolling=True)
         #st.toast('Done!',icon=':material/check_box:')
+        tab1, tab2, tab3, tab4, tab5 = st.tabs(["Energy", "Tempo", "Danceability", "Valence", "Instrumentalness"])
+        with tab1:
+            fig = px.scatter(topSongs,x='track_name',y="energy")
+            st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+        with tab2:
+            fig = px.scatter(topSongs,x='track_name',y="tempo")
+            st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+        with tab3:
+            fig = px.scatter(topSongs,x='track_name',y="danceability")
+            st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+        with tab4:
+            fig = px.scatter(topSongs,x='track_name',y="valence")
+            st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+        with tab5:
+            fig = px.scatter(topSongs,x='track_name',y="instrumentalness")
+            st.plotly_chart(fig, theme="streamlit", use_container_width=True)
