@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 import streamlit as st
 import streamlit.components.v1 as components
+import plotly.express as px
 
 st.set_page_config(
     page_title="PB & Jam",
