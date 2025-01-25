@@ -19,9 +19,9 @@ st.write_stream(stream_data)
 st.write("Choose an option below to get started:")
 
 # Buttons for navigation
-if st.button("Generate a Playlist Based on Your Mood"):
-    # Navigate to the "Generate a Playlist" page
-    st.switch_page(page="pages/2_Generate_a_Playlist_Based_on_Your_Mood.py")
+if st.button("Create Your Own Jam"):
+    # Navigate to the "Create Your Own Jam" page
+    st.switch_page(page="pages/2_Create_Your_Own_Jam.py")
 
 if st.button("Find a Song With a Similar Vibe"):
     # Navigate to the "Find a Similar Song" page
