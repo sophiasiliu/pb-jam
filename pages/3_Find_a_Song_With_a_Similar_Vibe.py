@@ -28,7 +28,7 @@ else:
     similarityScores = cosine_similarity(songvector, X)
     similarIndices = similarityScores.argsort()[0][::-1]
     topN = 10
-    st.session_state
+
     if ('n' not in st.session_state):
         st.session_state['n'] = -9
 
