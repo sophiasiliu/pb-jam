@@ -3,7 +3,7 @@ import time
 
 st.set_page_config(
     page_title="PB & Jam",
-    page_icon="🎵",
+    page_icon="🍞",
 )
 
 st.title("Welcome to PB & Jam!")
