@@ -26,18 +26,19 @@ st.markdown(
 
 st.write("Choose an option below to get started:")
 
-col1, col2 = st.columns(2)
+# Create columns
+col1, col2, col3, col4, col5 = st.columns([1, 2, 1, 2, 1])
 
-# Button in the first column
-with col1:
-    if st.button("Find some jams"):
-        # Navigate to the "Find a Similar Song" page
+# Add the PB Button (link) to the first column
+with col2:
+    st.image("PB.png")
+    if st.button("Find Some Jams"):
         st.switch_page(page="pages/3_Find_a_Song_With_a_Similar_Vibe.py")
 
 # Button in the second column
-with col2:
-    if st.button("Create your jam"):
-        # Navigate to the "Find a Similar Song" page
+with col4:
+    st.image("J.png")
+    if st.button("Create Some Jams"):
         st.switch_page(page="pages/2_Create_Your_Own_Jam.py")
 
 # Sidebar image
