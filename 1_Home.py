@@ -8,16 +8,24 @@ st.set_page_config(
     page_title="PB & Jam",
     page_icon="🍞",
 )
-st.title("Welcome to PB & Jam!")
 
+st.title("Welcome to PB & Jam! 🥪🎶")
 
-_ABOUT_US = """ A bit about us... like... erm... stuff and... the like? yeah. that sounds legit. """
-def stream_data():
-    for character in _ABOUT_US:
-        yield character 
-        time.sleep(0.02)
+# Home page description
+st.markdown(
+    """
+    The ultimate combo of good vibes and great tunes! \n
+    Are you in the mood for music that matches your feels, or searching for the perfect song to complement your current jam? 
+    Look no further, PB & Jam has got you covered. Our AI-powered app takes your musical cravings and serves up the perfect playlist or song with the same vibe as your favorite track. \n
+    Whether you’re feeling mellow, pumped, or somewhere in between, PB & Jam blends your mood and music preferences into the ultimate sonic spread.
+    ### Our Recipe:
+    - 🎧 **Mood-Based Playlists:** Tell us how you’re feeling, and we’ll whip up a custom playlist tailored to your vibe.
+    - 🎵 **Song Matching:** Upload a song or drop a link, and we’ll find tracks that hit all the same notes.
+    \n
+    It’s like peanut butter and jelly, but for your ears. Ready to spread some musical joy? Dive in and start jamming!
+"""
+)
 
-st.write_stream(stream_data)
 st.write("Choose an option below to get started:")
 
 # Buttons for navigation
@@ -28,7 +36,6 @@ if st.button("Generate a Playlist Based on Your Mood"):
 if st.button("Find a Song With a Similar Vibe"):
     # Navigate to the "Find a Similar Song" page
     st.switch_page(page="pages/3_Find_a_Song_With_a_Similar_Vibe.py")
-
 
 #load dataset
 df = pd.read_csv("spotify_songs1.csv", sep=',')
