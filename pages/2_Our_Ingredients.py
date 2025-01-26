@@ -2,6 +2,11 @@ import streamlit as st
 import pandas as pd
 import streamlit.components.v1 as components
 
+st.set_page_config(
+    page_title="PB & Jam",
+    page_icon="🍞",
+)
+
 #load dataset
 df = pd.read_csv("spotify_songs1.csv", sep=',')
 df = df[['track_id', 'track_name', 'track_artist', 'energy', 'tempo', 'danceability', 'valence', 'instrumentalness']].dropna()
