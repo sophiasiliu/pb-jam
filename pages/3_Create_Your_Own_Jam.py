@@ -15,12 +15,12 @@ st.set_page_config(
 
 st.title("Create Your Own Jam")
 
-df = pd.read_csv("/Users/sophiasliu/Downloads/QHacks/pages/spotify_songs1.csv", sep=',')
+df = pd.read_csv("spotify_songs1.csv", sep=',')
 df = df[['track_id', 'track_name', 'track_artist', 'energy', 'tempo', 'danceability', 'valence', 'instrumentalness']].dropna()
 df.drop_duplicates(subset = ['track_name', 'track_artist'], inplace = True)
 X = df[['energy', 'tempo', 'danceability', 'valence', 'instrumentalness']].values
 
-os.environ["OPENAI_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = "" #put your API key here!
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
@@ -85,16 +85,20 @@ if st.button("Get my playlist"):
             n = st.session_state['n']
             st.session_state['topN'] += 10
             topN = st.session_state['topN']
-            topSongs = df.iloc[similarIndices[n:topN+1]]
-            print(topSongs)
-            songNames = list(dict.fromkeys(topSongs['track_name'].values))
-            artistNames = list(dict.fromkeys(topSongs['track_artist'].values))
-            trackIDs = list(dict.fromkeys(topSongs['track_id'].values))
             st.subheader("Playlist Bot: Here's your jam, enjoy!")
-            for i in range(len(trackIDs)):
-                link = "https://open.spotify.com/embed/track/" + str(trackIDs[i])
-                iframe_src = link
-                components.iframe(iframe_src, height=175, scrolling=True)
+            while(True):
+                topSongs = df.iloc[similarIndices[n:topN+1]]
+                print("topSongs: " + str(topSongs))
+                print("len of topsongs: " + str(len(topSongs)))
+                songNames = list(dict.fromkeys(topSongs['track_name'].values))
+                artistNames = list(dict.fromkeys(topSongs['track_artist'].values))
+                trackIDs = list(dict.fromkeys(topSongs['track_id'].values))
+                for i in range(len(trackIDs)):
+                    link = "https://open.spotify.com/embed/track/" + str(trackIDs[i])
+                    iframe_src = link
+                    components.iframe(iframe_src, height=175, scrolling=True)
+                if(len(topSongs) > 0 or len(topSongs) <=10):
+                    break
     else:
         st.warning("Please enter a jam description.")
 
