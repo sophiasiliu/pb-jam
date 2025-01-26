@@ -20,7 +20,7 @@ df = df[['track_id', 'track_name', 'track_artist', 'energy', 'tempo', 'danceabil
 df.drop_duplicates(subset = ['track_name', 'track_artist'], inplace = True)
 X = df[['energy', 'tempo', 'danceability', 'valence', 'instrumentalness']].values
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
