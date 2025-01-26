@@ -3,7 +3,7 @@ import openai
 import os
 import traceback
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = ""
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 import streamlit as st
