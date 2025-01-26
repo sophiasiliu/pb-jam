@@ -13,7 +13,7 @@ st.title("Find a Song With a Similar Vibe")
 
 #dataset from new csv file
 df = pd.read_csv("spotify_songs1.csv", sep=',')
-df = df[['track_id', 'track_name', 'track_artist', 'energy', 'tempo', 'danceability', 'valence', 'instrumentalness']].dropna()
+df = df[['track_id', 'track_name', 'track_artist', 'Popularity', 'energy', 'tempo', 'danceability', 'valence', 'instrumentalness']].dropna()
 df.drop_duplicates(subset = ['track_name', 'track_artist'], inplace = True)
 X = df[['energy', 'tempo', 'danceability', 'valence', 'instrumentalness']].values
 
@@ -76,21 +76,21 @@ else:
             tab1, tab2, tab3, tab4, tab5 = st.tabs(["Energy", "Tempo", "Danceability", "Valence", "Instrumentalness"])
             with tab1:
                 #figure for energy
-                fig = px.scatter(topSongs,x='track_name',y="energy", color="playlist_genre", labels={"track_name": "Track Name", "energy": "Energy", "playlist_genre": "Playlist Genre"})
+                fig = px.scatter(topSongs,x='track_name',y="energy", color="Popularity", labels={"track_name": "Track Name", "energy": "Energy", "playlist_genre": "Playlist Genre"})
                 st.plotly_chart(fig, theme="streamlit", use_container_width=True)
             with tab2:
                 #figure for tempo
-                fig = px.scatter(topSongs,x='track_name',y="tempo", color="playlist_genre", labels={"track_name": "Track Name", "tempo": "Tempo", "playlist_genre": "Playlist Genre"})
+                fig = px.scatter(topSongs,x='track_name',y="tempo", color="Popularity", labels={"track_name": "Track Name", "tempo": "Tempo", "playlist_genre": "Playlist Genre"})
                 st.plotly_chart(fig, theme="streamlit", use_container_width=True)
             with tab3:
                 #figure for danceability
-                fig = px.scatter(topSongs,x='track_name',y="danceability", color="playlist_genre", labels={"track_name": "Track Name", "danceability": "Danceability", "playlist_genre": "Playlist Genre"})
+                fig = px.scatter(topSongs,x='track_name',y="danceability", color="Popularity", labels={"track_name": "Track Name", "danceability": "Danceability", "playlist_genre": "Playlist Genre"})
                 st.plotly_chart(fig, theme="streamlit", use_container_width=True)
             with tab4:
                 #figure for valence
-                fig = px.scatter(topSongs,x='track_name',y="valence", color="playlist_genre", labels={"track_name": "Track Name", "valence": "Valence", "playlist_genre": "Playlist Genre"})
+                fig = px.scatter(topSongs,x='track_name',y="valence", color="Popularity", labels={"track_name": "Track Name", "valence": "Valence", "playlist_genre": "Playlist Genre"})
                 st.plotly_chart(fig, theme="streamlit", use_container_width=True)
             with tab5:
                 #figure for intrumentalness
-                fig = px.scatter(topSongs,x='track_name',y="instrumentalness", color="playlist_genre", labels={"track_name": "Track Name", "instrumentalness": "Instrumentalness", "playlist_genre": "Playlist Genre"})
+                fig = px.scatter(topSongs,x='track_name',y="instrumentalness", color="Popularity", labels={"track_name": "Track Name", "instrumentalness": "Instrumentalness", "playlist_genre": "Playlist Genre"})
                 st.plotly_chart(fig, theme="streamlit", use_container_width=True)
