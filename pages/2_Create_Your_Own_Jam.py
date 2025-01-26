@@ -15,12 +15,12 @@ st.set_page_config(
 
 st.title("Create Your Own Jam")
 
-df = pd.read_csv("spotify_songs1.csv", sep=',')
+df = pd.read_csv("/Users/sophiasliu/Downloads/QHacks/pages/spotify_songs1.csv", sep=',')
 df = df[['track_id', 'track_name', 'track_artist', 'energy', 'tempo', 'danceability', 'valence', 'instrumentalness']].dropna()
 df.drop_duplicates(subset = ['track_name', 'track_artist'], inplace = True)
 X = df[['energy', 'tempo', 'danceability', 'valence', 'instrumentalness']].values
 
-os.environ["OPENAI_API_KEY"] = "" #put your API key here!
+os.environ["OPENAI_API_KEY"] = "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"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
@@ -97,3 +97,6 @@ if st.button("Get my playlist"):
                 components.iframe(iframe_src, height=175, scrolling=True)
     else:
         st.warning("Please enter a jam description.")
+
+# Sidebar image
+st.sidebar.image("PJ-main.PNG")
