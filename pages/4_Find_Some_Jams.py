@@ -12,7 +12,7 @@ st.set_page_config(
 st.title("Find a Song With a Similar Vibe")
 
 #dataset from new csv file
-df = pd.read_csv("/Users/sophiasliu/Downloads/QHacks/pages/spotify_songs1.csv", sep=',')
+df = pd.read_csv("spotify_songs1.csv", sep=',')
 df = df[['track_id', 'track_name', 'track_artist', 'Popularity', 'energy', 'tempo', 'danceability', 'valence', 'instrumentalness']].dropna()
 df.drop_duplicates(subset = ['track_name', 'track_artist'], inplace = True)
 X = df[['energy', 'tempo', 'danceability', 'valence', 'instrumentalness']].values
@@ -49,26 +49,30 @@ else:
         if (refresh):
             #st.balloons()
             #for each click of refresh, add 10 to n and topN (to cycle through new songs)
-            st.session_state['n'] += 10
-            n = st.session_state['n']
-            st.session_state['topN'] += 10
-            topN = st.session_state['topN']
+            while(True):
+                st.session_state['n'] += 10
+                n = st.session_state['n']
+                st.session_state['topN'] += 10
+                topN = st.session_state['topN']
 
-            #top n songs from cosine comparision
-            topSongs = df.iloc[similarIndices[n:topN+1]]
-            #define vars (may not be needed)
-            songNames = list(dict.fromkeys(topSongs['track_name'].values))
-            artistNames = list(dict.fromkeys(topSongs['track_artist'].values))
-            trackIDs = list(dict.fromkeys(topSongs['track_id'].values))
+                #top n songs from cosine comparision
+                topSongs = df.iloc[similarIndices[n:topN+1]]
+                #define vars (may not be needed)
+                songNames = list(dict.fromkeys(topSongs['track_name'].values))
+                artistNames = list(dict.fromkeys(topSongs['track_artist'].values))
+                trackIDs = list(dict.fromkeys(topSongs['track_id'].values))
 
-            #display playlist
-            st.subheader("Playlist Bot: Here's your jam, enjoy!")
-            #loop through given ids for cosine similar topN songs, and embed them with spotify
-            for i in range(len(trackIDs)):
-                link = "https://open.spotify.com/embed/track/" + str(trackIDs[i])
-                iframe_src = link
-                components.iframe(iframe_src, height=175, scrolling=True)
-            #st.toast('Done!',icon=':material/check_box:')
+                #display playlist
+                st.subheader("Playlist Bot: Here's your jam, enjoy!")
+                #loop through given ids for cosine similar topN songs, and embed them with spotify
+                for i in range(len(trackIDs)):
+                    link = "https://open.spotify.com/embed/track/" + str(trackIDs[i])
+                    iframe_src = link
+                    components.iframe(iframe_src, height=175, scrolling=True)
+                #st.toast('Done!',icon=':material/check_box:')
+
+                if(len(topSongs) == 10):
+                    break
 
             #display visual representation of cosine comparision (eg. energy for each song given)
             st.subheader("Our Secret Recipe for Your Jam:")
