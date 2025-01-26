@@ -28,14 +28,20 @@ st.markdown(
 
 st.write("Choose an option below to get started:")
 
-# Buttons for navigation
-if st.button("Generate a Playlist Based on Your Mood"):
-    # Navigate to the "Generate a Playlist" page
-    st.switch_page(page="pages/2_Generate_a_Playlist_Based_on_Your_Mood.py")
+col1, col2 = st.columns(2)
 
-if st.button("Find a Song With a Similar Vibe"):
-    # Navigate to the "Find a Similar Song" page
-    st.switch_page(page="pages/3_Find_a_Song_With_a_Similar_Vibe.py")
+# Button in the first column
+with col1:
+    if st.button("Find some jams"):
+        # Navigate to the "Find a Similar Song" page
+        st.switch_page(page="pages/3_Find_a_Song_With_a_Similar_Vibe.py")
+
+# Button in the second column
+with col2:
+    if st.button("Create your jam"):
+        # Navigate to the "Find a Similar Song" page
+        st.switch_page(page="pages/2_Create_Your_Own_Jam.py")
+
 
 #load dataset
 df = pd.read_csv("spotify_songs1.csv", sep=',')
