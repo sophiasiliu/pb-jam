@@ -12,7 +12,7 @@ st.set_page_config(
 st.title("Find a Song With a Similar Vibe")
 
 #dataset from new csv file
-df = pd.read_csv("spotify_songs1.csv", sep=',')
+df = pd.read_csv("/Users/sophiasliu/Downloads/QHacks/pages/spotify_songs1.csv", sep=',')
 df = df[['track_id', 'track_name', 'track_artist', 'Popularity', 'energy', 'tempo', 'danceability', 'valence', 'instrumentalness']].dropna()
 df.drop_duplicates(subset = ['track_name', 'track_artist'], inplace = True)
 X = df[['energy', 'tempo', 'danceability', 'valence', 'instrumentalness']].values
@@ -94,3 +94,6 @@ else:
                 #figure for intrumentalness
                 fig = px.scatter(topSongs,x='track_name',y="instrumentalness", color="Popularity", labels={"track_name": "Track Name", "instrumentalness": "Instrumentalness", "playlist_genre": "Playlist Genre"})
                 st.plotly_chart(fig, theme="streamlit", use_container_width=True)
+
+# Sidebar image
+st.sidebar.image("PJ-main.PNG")
