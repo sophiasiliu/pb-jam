@@ -40,6 +40,8 @@ with col2:
         # Navigate to the "Find a Similar Song" page
         st.switch_page(page="pages/2_Create_Your_Own_Jam.py")
 
+# Sidebar image
+st.sidebar.image("PJ-main.PNG")
 
 #load dataset
 df = pd.read_csv("spotify_songs1.csv", sep=',')
@@ -77,3 +79,4 @@ with tab2:
 
     #place load (under songs)
     load_more = st.button("Load More", type="secondary", icon=':material/refresh:', use_container_width=True)
+    
