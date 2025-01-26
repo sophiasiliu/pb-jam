@@ -14,15 +14,13 @@ st.title("Welcome to PB & Jam! 🥪🎶")
 # Home page description
 st.markdown(
     """
-    The ultimate combo of good vibes and great tunes! \n
-    Are you in the mood for music that matches your feels, or searching for the perfect song to complement your current jam? 
-    Look no further, PB & Jam has got you covered. Our AI-powered app takes your musical cravings and serves up the perfect playlist or song with the same vibe as your favorite track. \n
-    Whether you’re feeling mellow, pumped, or somewhere in between, PB & Jam blends your mood and music preferences into the ultimate sonic spread.
+    Elevate your earbuds with our delectable mix! \n
+    Playlist Bot & Jam (PB & Jam for short) helps find songs based on a carefully curated algo-rhythm.
+    Our AI-powered app takes your musical cravings and serves up the perfect playlist or song with the same vibe as your favorite track. \n
     ### Our Recipe:
-    - 🎧 **Mood-Based Playlists:** Tell us how you’re feeling, and we’ll whip up a custom playlist tailored to your vibe.
-    - 🎵 **Song Matching:** Upload a song or drop a link, and we’ll find tracks that hit all the same notes.
+    - **Song Matching:** Search for a song from our database and we’ll find tracks that hit the same notes.
+    - **Mood-Based Songs:** Prompt us anything and we'll find tracks that fit your description.
     \n
-    It’s like peanut butter and jelly, but for your ears. Ready to spread some musical joy? Dive in and start jamming!
 """
 )
 
