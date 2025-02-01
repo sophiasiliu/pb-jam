@@ -9,7 +9,7 @@ st.set_page_config(
     page_icon="🍞",
 )
 
-st.title("Welcome to PB & Jam! 🥪🎶")
+st.title("Welcome to PB & Jam!")
 
 # Home page description
 st.markdown(
