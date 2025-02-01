@@ -20,9 +20,6 @@ df = df[['track_id', 'track_name', 'track_artist', 'energy', 'tempo', 'danceabil
 df.drop_duplicates(subset = ['track_name', 'track_artist'], inplace = True)
 X = df[['energy', 'tempo', 'danceability', 'valence', 'instrumentalness']].values
 
-os.environ["OPENAI_API_KEY"] = "" #put your API key here!
-openai.api_key = os.getenv("OPENAI_API_KEY")
-
 
 def get_feature_estimates(prompt):
     try:
